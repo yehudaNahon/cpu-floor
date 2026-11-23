@@ -1,0 +1,20 @@
+[package]
+name = "cpu-floor"
+version = "0.1.0"
+edition = "2024"
+description = "Keeps CPU utilization above a floor so OCI Always Free instances are not reclaimed as idle"
+license = "MIT"
+repository = "https://github.com/yehudaNahon/cpu-floor"
+
+[dependencies]
+anyhow = "1.0.105"
+clap = { version = "4.6.9", features = ["derive", "env"] }
+env_logger = "0.11.12"
+libc = "0.2.191"
+log = "0.4.35"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
